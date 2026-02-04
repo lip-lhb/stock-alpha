@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量化策略复核日报 - 2026-02-05</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f3f4f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .stock-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .vcp-tag { background-color: #fee2e2; color: #ef4444; }
+        .pma-tag { background-color: #dcfce7; color: #22c55e; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-8 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">🚀 量化策略投研看板</h1>
+                <p class="text-gray-500">策略：PMA 动能堆积 & VCP 波动收缩</p>
+            </div>
+            <div class="text-right text-sm text-gray-400">更新时间：2026-02-05</div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm stock-card border-t-4 border-red-500">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs font-bold px-2 py-1 rounded vcp-tag">VCP 模式</span>
+                    <span class="text-gray-400 text-xs">600779</span>
+                </div>
+                <h2 class="text-xl font-bold mb-2">水井坊</h2>
+                <p class="text-gray-600 text-sm mb-4">白酒板块龙头，价格在年线处形成 3 重收缩形态，Pivot 点即将出现。</p>
+                <div class="text-xs text-gray-500 border-t pt-2">行业：白酒消费 | 状态：缩量观察期</div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm stock-card border-t-4 border-green-500">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs font-bold px-2 py-1 rounded pma-tag">PMA 模式</span>
+                    <span class="text-gray-400 text-xs">000767</span>
+                </div>
+                <h2 class="text-xl font-bold mb-2">晋控电力</h2>
+                <p class="text-gray-600 text-sm mb-4">量能连续 3 日温和放大，主力资金介入迹象明显，符合动能堆积逻辑。</p>
+                <div class="text-xs text-gray-500 border-t pt-2">行业：火力发电 | 状态：资金流入中</div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm stock-card border-t-4 border-blue-500">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs font-bold px-2 py-1 bg-blue-100 text-blue-600 rounded">行业龙头</span>
+                    <span class="text-gray-400 text-xs">002334</span>
+                </div>
+                <h2 class="text-xl font-bold mb-2">英威腾</h2>
+                <p class="text-gray-600 text-sm mb-4">工控自动化核心标的，业绩预增，且成交量与换手率配合健康。</p>
+                <div class="text-xs text-gray-500 border-t pt-2">行业：工业自动化 | 状态：突破前夕</div>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-white rounded-2xl shadow-sm overflow-hidden">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50 text-gray-600 uppercase">
+                    <tr>
+                        <th class="px-6 py-4">代码</th>
+                        <th class="px-6 py-4">板块/行业</th>
+                        <th class="px-6 py-4">投研核心观点</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr><td class="px-6 py-4 font-mono">600395</td><td class="px-6 py-4">煤炭</td><td class="px-6 py-4 text-gray-500">高红利属性，资金避险选择，处于 PMA 蓄势期。</td></tr>
+                    <tr><td class="px-6 py-4 font-mono">688129</td><td class="px-6 py-4">新材料</td><td class="px-6 py-4 text-gray-500">科创板个股，波动较大，需配合 VCP 窄幅特征观察。</td></tr>
+                    <tr><td class="px-6 py-4 font-mono">600683</td><td class="px-6 py-4">房地产</td><td class="px-6 py-4 text-gray-500">受政策性利好脉冲影响，不确定性较高。</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
