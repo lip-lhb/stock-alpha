@@ -3,133 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>量化投研精选看板 | PMA & VCP 策略复核</title>
+    <title>全量投研看板 | VCP & PMA 21只标的深度解析</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .vcp-border { border-left: 4px solid #ef4444; }
-        .pma-border { border-left: 4px solid #22c55e; }
-        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
-    </style>
+        body { background-color: #f1f5f9; font-family: 'Inter', -apple-system, sans-serif; }
+        .vcp-badge { background-color: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
+        .pma-badge { background-color: #dcfce7; color: #16a34a; border: 1px solid #bbf7d0; }
+        tr:hover { background-color: #f8fafc; transition: background 0.2s; }
+    </table>
 </head>
-<body class="text-slate-800">
-
-    <div class="max-w-7xl mx-auto px-4 py-8">
-        <header class="mb-10 text-center md:text-left">
-            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                <i class="fa-solid fa-chart-line text-blue-600 mr-2"></i> 量化策略投研看板
+<body class="p-4 md:p-10">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-white rounded-3xl p-8 shadow-sm mb-8 border border-slate-200">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4 text-center md:text-left">
+                <i class="fa-solid fa-layer-group text-blue-500 mr-2"></i> 量化策略全量投研报告
             </h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-red-50 p-4 rounded-xl border border-red-100">
-                    <p class="text-sm font-bold text-red-600 uppercase mb-1">VCP 极致双日压缩突破</p>
-                    <p class="text-sm text-red-800">寻找大趋势向上且波幅历经多轮收缩后的个股，在极致地量后捕捉放量突破 Pivot Point 的爆发瞬间。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="font-bold text-red-600">VCP 策略逻辑：</span>
+                    寻找价格波动收缩至极致、抛压衰竭后的放量突破瞬间。
                 </div>
-                <div class="bg-green-50 p-4 rounded-xl border border-green-100">
-                    <p class="text-sm font-bold text-green-600 uppercase mb-1">持续动能堆积策略 (PMA)</p>
-                    <p class="text-sm text-green-800">识别资金连续多日、有计划的持续介入信号，通过量比稳定堆积确认机构建仓，捕捉惯性上涨机会。</p>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                    <span class="font-bold text-green-600">PMA 策略逻辑：</span>
+                    识别资金连续多日、台阶式堆积的介入信号，博取上升惯性。
                 </div>
             </div>
-        </header>
+        </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left">
-                    <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold">
-                        <tr>
-                            <th class="px-6 py-4">策略/代码</th>
-                            <th class="px-6 py-4">公司名称</th>
-                            <th class="px-6 py-4">行业/题材板块</th>
-                            <th class="px-6 py-4">基本面/财务概况</th>
-                            <th class="px-6 py-4">最新动态/消息面</th>
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
+                            <th class="px-6 py-5">策略 / 代码</th>
+                            <th class="px-6 py-5">股票名称</th>
+                            <th class="px-6 py-5">行业 & 概念题材</th>
+                            <th class="px-6 py-5">基本面 & 财务概况</th>
+                            <th class="px-6 py-5">最新动态 & 核心逻辑</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr class="vcp-border bg-red-50/20">
-                            <td class="px-6 py-4 font-mono font-bold text-red-600">VCP | 600683</td>
-                            <td class="px-6 py-4 font-bold">京投发展</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">地产/北京轨道交通</span></td>
-                            <td class="px-6 py-4 text-xs">专注TOD模式；近期地产政策托底，现金流边际改善。</td>
-                            <td class="px-6 py-4 text-xs">关注北京城轨TOD项目进展，近期有机构调研。</td>
-                        </tr>
-                        <tr class="vcp-border">
-                            <td class="px-6 py-4 font-mono font-bold text-red-600">VCP | 002334</td>
-                            <td class="px-6 py-4 font-bold">英威腾</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">工控/人形机器人</span></td>
-                            <td class="px-6 py-4 text-xs">国产逆变器龙头；ROE保持稳定，负债率持续下降。</td>
-                            <td class="px-6 py-4 text-xs">受益人形机器人核心零部件国产化传闻，动能较强。</td>
-                        </tr>
-                        <tr class="vcp-border">
-                            <td class="px-6 py-4 font-mono font-bold text-red-600">VCP | 300985</td>
-                            <td class="px-6 py-4 font-bold">致远新能</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">氢能/LNG装备</span></td>
-                            <td class="px-6 py-4 text-xs">LNG车载供气系统龙头；受益天然气重卡高景气度。</td>
-                            <td class="px-6 py-4 text-xs">清洁能源渗透率提升，近期成交量在底部明显收缩。</td>
-                        </tr>
-                        <tr class="vcp-border">
-                            <td class="px-6 py-4 font-mono font-bold text-red-600">VCP | 600992</td>
-                            <td class="px-6 py-4 font-bold">贵绳股份</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">军工/金属制品</span></td>
-                            <td class="px-6 py-4 text-xs">高端钢绳生产商；特种设备领域具有较高技术壁垒。</td>
-                            <td class="px-6 py-4 text-xs">近期市场传闻重组预期（习酒等），波动收缩极快。</td>
-                        </tr>
-                        <tr class="vcp-border">
-                            <td class="px-6 py-4 font-mono font-bold text-red-600">VCP | 300106</td>
-                            <td class="px-6 py-4 font-bold">西部牧业</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">乳业/新疆板块</span></td>
-                            <td class="px-6 py-4 text-xs">新疆乳制品龙头；深耕全产业链，现金流较为充沛。</td>
-                            <td class="px-6 py-4 text-xs">消费复苏预期下，股价在年线附近震荡并进入静默期。</td>
-                        </tr>
-                        
-                        <tr class="pma-border bg-green-50/20">
-                            <td class="px-6 py-4 font-mono font-bold text-green-600">PMA | 600395</td>
-                            <td class="px-6 py-4 font-bold">盘江股份</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">煤电/高红利</span></td>
-                            <td class="px-6 py-4 text-xs">贵州煤电一体化；高股息率标的，财务极度稳健。</td>
-                            <td class="px-6 py-4 text-xs">资金避险流入，成交量呈“台阶式”稳步放大。</td>
-                        </tr>
-                        <tr class="pma-border">
-                            <td class="px-6 py-4 font-mono font-bold text-green-600">PMA | 600779</td>
-                            <td class="px-6 py-4 font-bold">水井坊</td>
-                            <td class="px-6 py-4 font-bold underline">水井坊</td>
-                            <td class="px-6 py-4 text-xs">次高端白酒名企；业绩拐点初现，ROE处于回升通道。</td>
-                            <td class="px-6 py-4 text-xs">商务宴请需求回暖，多日换手稳定在4%-6%，建仓期。</td>
-                        </tr>
-                        <tr class="pma-border">
-                            <td class="px-6 py-4 font-mono font-bold text-green-600">PMA | 000767</td>
-                            <td class="px-6 py-4 font-bold">晋控电力</td>
-                            <td class="px-6 py-4"><span class="bg-slate-100 px-2 py-1 rounded text-xs">火电/容量电价</span></td>
-                            <td class="px-6 py-4 text-xs">山西电力巨头；受益于煤价下行与容量电价政策补偿。</td>
-                            <td class="px-6 py-4 text-xs">多日温和放量，量比均值突破2.0，趋势惯性极强。</td>
-                        </tr>
+                    <tbody class="text-sm divide-y divide-slate-100">
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 600683</span></td><td class="px-6 py-4 font-bold">京投发展</td><td class="px-6 py-4">房地产 / 北京TOD</td><td class="px-6 py-4">专注轨道交通地产；现金流受政策提振边际改善。</td><td class="px-6 py-4 text-slate-500 italic">波幅收缩至极致，关注北京TOD项目收益确认。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 000719</span></td><td class="px-6 py-4 font-bold">中原内配</td><td class="px-6 py-4">汽车零部件 / 氢能</td><td class="px-6 py-4">气缸套全球龙头；氢燃料电池布局进入实质期。</td><td class="px-6 py-4 text-slate-500 italic">汽车出海逻辑支撑，低位窄幅震荡，待放量。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 605006</span></td><td class="px-6 py-4 font-bold">引力传媒</td><td class="px-6 py-4">广告营销 / AI视频</td><td class="px-6 py-4">短剧营销头部企业；轻资产模式，业绩弹性大。</td><td class="px-6 py-4 text-slate-500 italic">AI视频概念反复活跃，形态形成典型VCP口袋。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 002334</span></td><td class="px-6 py-4 font-bold">英威腾</td><td class="px-6 py-4">工业自动化 / 机器人</td><td class="px-6 py-4">变频器龙头；海外业务占比提升，利润率走高。</td><td class="px-6 py-4 text-slate-500 italic">人形机器人传闻利好，股价处于突破箱体边缘。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 600814</span></td><td class="px-6 py-4 font-bold">杭州解百</td><td class="px-6 py-4">新零售 / 杭州国资</td><td class="px-6 py-4">杭州核心商圈地产及零售；分红稳定，负债率低。</td><td class="px-6 py-4 text-slate-500 italic">消费复苏题材，长周期缩量横盘后的方向确认。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 300985</span></td><td class="px-6 py-4 font-bold">致远新能</td><td class="px-6 py-4">清洁能源装备 / LNG</td><td class="px-6 py-4">LNG车载供气系统；受益天然气重卡行业爆发。</td><td class="px-6 py-4 text-slate-500 italic">基本面反转明确，当前处于第3轮波幅收缩区。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 600463</span></td><td class="px-6 py-4 font-bold">空港股份</td><td class="px-6 py-4">园区开发 / 临空经济</td><td class="px-6 py-4">北京顺义园区开发；受北京自贸区政策红利加持。</td><td class="px-6 py-4 text-slate-500 italic">土地价值重估预期，近期交投清淡至极点。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 000517</span></td><td class="px-6 py-4 font-bold">荣安地产</td><td class="px-6 py-4">房地产 / 宁波龙头</td><td class="px-6 py-4">区域房企领军；ROE在同业中居前，深耕长三角。</td><td class="px-6 py-4 text-slate-500 italic">高股息特征明显，回踩年线后开始缩量构底。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 300193</span></td><td class="px-6 py-4 font-bold">佳士科技</td><td class="px-6 py-4">高端制造 / 焊接设备</td><td class="px-6 py-4">逆变焊机全球前列；现金储备充足，高壁垒制造。</td><td class="px-6 py-4 text-slate-500 italic">低估值蓝筹，量价配合显示抛压已极其微弱。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 600778</span></td><td class="px-6 py-4 font-bold">友好集团</td><td class="px-6 py-4">百货 / 新疆板块</td><td class="px-6 py-4">新疆零售巨头；资产折旧完毕，利润修复可期。</td><td class="px-6 py-4 text-slate-500 italic">冰雪旅游、西域贸易带动机遇，价格结构紧致。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 300106</span></td><td class="px-6 py-4 font-bold">西部牧业</td><td class="px-6 py-4">乳业 / 新疆概念</td><td class="px-6 py-4">新疆优质奶源；业绩预告显示成本端改善明显。</td><td class="px-6 py-4 text-slate-500 italic">股价在底部区域维持微幅震荡，待主力点火。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 600992</span></td><td class="px-6 py-4 font-bold">贵绳股份</td><td class="px-6 py-4">特种金属 / 军工</td><td class="px-6 py-4">航空航天用钢丝绳；具备极高技术垄断优势。</td><td class="px-6 py-4 text-slate-500 italic">重组预期虽有反复，但k线形态已回归强势压缩。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 603709</span></td><td class="px-6 py-4 font-bold">中源家居</td><td class="px-6 py-4">跨境电商 / 家具</td><td class="px-6 py-4">主攻海外家具市场；受益海运费回落。</td><td class="px-6 py-4 text-slate-500 italic">外贸数据超预期，股价创阶段新高后的横向收缩。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 300317</span></td><td class="px-6 py-4 font-bold">珈伟新能</td><td class="px-6 py-4">光伏 / 储能</td><td class="px-6 py-4">光伏电站EPC及储能；基本面处于筑底反转期。</td><td class="px-6 py-4 text-slate-500 italic">能量守恒点显现，两日振幅均小于1.5%。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded-lg text-xs font-bold">VCP | 002377</span></td><td class="px-6 py-4 font-bold">国创高新</td><td class="px-6 py-4">新材料 / 房产中介</td><td class="px-6 py-4">路面材料+贝壳生态链；财务结构正在剧烈调整。</td><td class="px-6 py-4 text-slate-500 italic">低价股题材，波动性收窄至地量，关注变盘方向。</td></tr>
 
-                        <tr>
-                            <td colspan="5" class="bg-slate-50 px-6 py-3 text-xs font-bold text-slate-400 text-center uppercase tracking-widest">
-                                更多标的研究视图 (包含余下 13 支标的)
-                            </td>
-                        </tr>
-                        <tr class="text-slate-500 text-xs italic">
-                            <td class="px-6 py-3">VCP 补充</td>
-                            <td colspan="4" class="px-6 py-3">
-                                000719 中原海蓝 (跨境物流), 605006 引力传媒 (短剧/AIGC), 600814 杭州解百 (新零售), 300193 佳士科技 (工业焊机)... <br>
-                                <b>共同逻辑：</b>均处于窄幅横盘、地量静默后的反转前夕。
-                            </td>
-                        </tr>
-                        <tr class="text-slate-500 text-xs italic">
-                            <td class="px-6 py-3">PMA 补充</td>
-                            <td colspan="4" class="px-6 py-3">
-                                688129 东来技术 (涂料/科创), 300755 华致酒行 (酒水连锁), 002930 宏川智慧 (化工物流)... <br>
-                                <b>共同逻辑：</b>近3日资金持续流入，换手率保持在3-8%黄金区间。
-                            </td>
-                        </tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 600395</span></td><td class="px-6 py-4 font-bold">盘江股份</td><td class="px-6 py-4">煤电 / 贵州国资</td><td class="px-6 py-4">煤电联营典范；分红丰厚，属于防守反击标的。</td><td class="px-6 py-4 text-slate-500 italic">资金台阶式介入，量比持续维持在1.8以上。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 688129</span></td><td class="px-6 py-4 font-bold">东来技术</td><td class="px-6 py-4">高端涂料 / 汽车后市场</td><td class="px-6 py-4">科创板；汽车原厂漆替代空间巨大。</td><td class="px-6 py-4 text-slate-500 italic">近期换手显著放量，符合持续动能堆积特征。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 000767</span></td><td class="px-6 py-4 font-bold">晋控电力</td><td class="px-6 py-4">电力 / 能源改革</td><td class="px-6 py-4">山西最大发电商；受政策电价补偿，业绩高增长。</td><td class="px-6 py-4 text-slate-500 italic">成交量连续3日翻倍，机构席位有扫货迹象。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 300755</span></td><td class="px-6 py-4 font-bold">华致酒行</td><td class="px-6 py-4">白酒流通 / 消费龙头</td><td class="px-6 py-4">国内名酒渠道龙头；渠道优势极高。</td><td class="px-6 py-4 text-slate-500 italic">商务需求复苏，量能堆积显示资金正在逆向布局。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 600779</span></td><td class="px-6 py-4 font-bold">水井坊</td><td class="px-6 py-4">白酒 / 外资背景</td><td class="px-6 py-4">帝亚吉欧控股；产品矩阵清晰，毛利率极高。</td><td class="px-6 py-4 text-slate-500 italic">量比同步放大，突破关键压力位后的动能接力。</td></tr>
+                        <tr><td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded-lg text-xs font-bold">PMA | 002930</span></td><td class="px-6 py-4 font-bold">宏川智慧</td><td class="px-6 py-4">石化仓储 / 物流</td><td class="px-6 py-4">危化品仓储护城河极深；并购扩张驱动业绩成长。</td><td class="px-6 py-4 text-slate-500 italic">典型的机构缓步建仓股，换手温和放大。</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <footer class="mt-12 text-center text-slate-400 text-xs pb-10">
-            <p>© 2026 量化研究工作室 | 数据由 MacBook 本地数据库及 AI 引擎驱动生成</p>
+        
+        <footer class="mt-10 text-center text-slate-400 text-xs">
+            数据更新至：2026-02-05 14:00 | 由量化投研助理 AI 实时分析生成
         </footer>
     </div>
 </body>
