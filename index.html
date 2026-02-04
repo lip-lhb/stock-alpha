@@ -3,128 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>量化策略投研看板 | VCP & PMA 全量分析</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>股票策略筛选结果汇总</title>
     <style>
-        body { background-color: #f1f5f9; font-family: 'Inter', -apple-system, sans-serif; }
-        .vcp-badge { background-color: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
-        .pma-badge { background-color: #dcfce7; color: #16a34a; border: 1px solid #bbf7d0; }
-        .link-icon:hover { color: #2563eb; text-decoration: underline; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .strategy-desc {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .strategy-desc h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .strategy-desc p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .stock-section {
+            margin-bottom: 40px;
+        }
+
+        .stock-section h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e6f0fa;
+        }
+
+        .stock-section:nth-child(4) h2 {
+            color: #e74c3c;
+            border-bottom: 2px solid #fdeeee;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 12px 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        td {
+            color: #555;
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .remark {
+            text-align: center;
+            color: #999;
+            margin-top: 30px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* 响应式适配小屏幕 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
-<body class="p-4 md:p-10">
-    <div class="max-w-full mx-auto">
-        <div class="bg-white rounded-2xl p-6 shadow-sm mb-6 flex flex-col md:flex-row gap-4 border border-slate-200">
-            <div class="flex-1 p-4 bg-red-50 rounded-xl border border-red-100">
-                <h3 class="font-bold text-red-600 mb-1 tracking-wider"><i class="fa-solid fa-compress-arrows-alt"></i> VCP 极致双日压缩突破</h3>
-                <p class="text-xs text-red-800">在波幅收缩末端寻找极致静默后的放量突破，博取阻力最小方向的爆发点。</p>
-            </div>
-            <div class="flex-1 p-4 bg-green-50 rounded-xl border border-green-100">
-                <h3 class="font-bold text-green-600 mb-1 tracking-wider"><i class="fa-solid fa-layer-group"></i> 持续动能堆积策略 (PMA)</h3>
-                <p class="text-xs text-green-800">识别资金连续多日台阶式堆积，确认机构建仓惯性而非单日脉冲。</p>
-            </div>
+<body>
+    <div class="container">
+        <h1>股票策略筛选结果汇总</h1>
+
+        <!-- 策略思路概述 -->
+        <div class="strategy-desc">
+            <h3>两种股票策略核心思路</h3>
+            <p><strong>1. VCP 极致双日压缩突破策略</strong>：通过筛选短期内股价波动极致收窄、量能持续萎缩的股票，捕捉后续突破前期整理平台、开启趋势性上涨的投资机会。</p>
+            <p><strong>2. 持续动能堆积策略</strong>：聚焦于资金持续流入、量价配合良好、技术面动能不断累积的股票，博弈中期趋势延续性行情。</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse min-w-[1000px]">
-                    <thead>
-                        <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs uppercase font-bold tracking-widest">
-                            <th class="px-6 py-4">策略/代码</th>
-                            <th class="px-6 py-4">名称</th>
-                            <th class="px-6 py-4">市值</th>
-                            <th class="px-6 py-4">所属行业</th>
-                            <th class="px-6 py-4">核心资源链接 (点击跳转)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm divide-y divide-slate-100">
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 600683</span></td><td class="px-6 py-4 font-bold">京投发展</td><td class="px-6 py-4 text-slate-500">约 40 亿</td><td class="px-6 py-4 font-semibold">房地产/TOD开发</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh600683.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念题材</a>
-                            <a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600683#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 最新新闻</a>
-                            <a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600683#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务情况</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 000719</span></td><td class="px-6 py-4 font-bold">中原内配</td><td class="px-6 py-4 text-slate-500">约 52 亿</td><td class="px-6 py-4 font-semibold">汽车零部件/氢能</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz000719.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000719#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000719#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 605006</span></td><td class="px-6 py-4 font-bold">引力传媒</td><td class="px-6 py-4 text-slate-500">约 45 亿</td><td class="px-6 py-4 font-semibold">广告营销/短剧AI</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh605006.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH605006#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH605006#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 002334</span></td><td class="px-6 py-4 font-bold">英威腾</td><td class="px-6 py-4 text-slate-500">约 65 亿</td><td class="px-6 py-4 font-semibold">电气设备/机器人</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz002334.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002334#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002334#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 600814</span></td><td class="px-6 py-4 font-bold">杭州解百</td><td class="px-6 py-4 text-slate-500">约 55 亿</td><td class="px-6 py-4 font-semibold">零售百货</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh600814.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600814#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600814#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 300985</span></td><td class="px-6 py-4 font-bold">致远新能</td><td class="px-6 py-4 text-slate-500">约 32 亿</td><td class="px-6 py-4 font-semibold">设备制造/LNG</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz300985.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300985#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300985#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 600463</span></td><td class="px-6 py-4 font-bold">空港股份</td><td class="px-6 py-4 text-slate-500">约 28 亿</td><td class="px-6 py-4 font-semibold">物流园区开发</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh600463.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600463#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600463#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 000517</span></td><td class="px-6 py-4 font-bold">荣安地产</td><td class="px-6 py-4 text-slate-500">约 105 亿</td><td class="px-6 py-4 font-semibold">房地产开发</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz000517.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000517#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000517#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 300193</span></td><td class="px-6 py-4 font-bold">佳士科技</td><td class="px-6 py-4 text-slate-500">约 42 亿</td><td class="px-6 py-4 font-semibold">机械制造/焊机</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz300193.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300193#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300193#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 600778</span></td><td class="px-6 py-4 font-bold">友好集团</td><td class="px-6 py-4 text-slate-500">约 22 亿</td><td class="px-6 py-4 font-semibold">零售商业</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh600778.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600778#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600778#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 300106</span></td><td class="px-6 py-4 font-bold">西部牧业</td><td class="px-6 py-4 text-slate-500">约 20 亿</td><td class="px-6 py-4 font-semibold">农牧饲渔/乳业</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz300106.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300106#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300106#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 600992</span></td><td class="px-6 py-4 font-bold">贵绳股份</td><td class="px-6 py-4 text-slate-500">约 48 亿</td><td class="px-6 py-4 font-semibold">金属制品</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh600992.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600992#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600992#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 603709</span></td><td class="px-6 py-4 font-bold">中源家居</td><td class="px-6 py-4 text-slate-500">约 18 亿</td><td class="px-6 py-4 font-semibold">轻工制造/家具</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sh603709.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH603709#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH603709#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 300317</span></td><td class="px-6 py-4 font-bold">珈伟新能</td><td class="px-6 py-4 text-slate-500">约 38 亿</td><td class="px-6 py-4 font-semibold">电力设备/光伏</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz300317.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300317#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300317#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-                        <tr><td class="px-6 py-4"><span class="vcp-badge px-2 py-1 rounded text-xs font-bold uppercase">VCP | 002377</span></td><td class="px-6 py-4 font-bold">国创高新</td><td class="px-6 py-4 text-slate-500">约 25 亿</td><td class="px-6 py-4 font-semibold">建筑材料/沥青</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                            <a href="https://quote.eastmoney.com/concept/sz002377.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002377#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002377#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                        </td></tr>
-
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 600395</span></td><td class="px-6 py-4 font-bold text-green-700">盘江股份</td><td class="px-6 py-4 text-slate-500">约 150 亿</td><td class="px-6 py-4 font-semibold">煤炭开采/火电</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sh600395.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600395#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600395#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 688129</span></td><td class="px-6 py-4 font-bold text-green-700">东来技术</td><td class="px-6 py-4 text-slate-500">约 16 亿</td><td class="px-6 py-4 font-semibold">化工涂料/科创板</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sh688129.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH688129#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH688129#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 000767</span></td><td class="px-6 py-4 font-bold text-green-700">晋控电力</td><td class="px-6 py-4 text-slate-500">约 85 亿</td><td class="px-6 py-4 font-semibold">火电/绿电</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sz000767.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000767#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ000767#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 300755</span></td><td class="px-6 py-4 font-bold text-green-700">华致酒行</td><td class="px-6 py-4 text-slate-500">约 78 亿</td><td class="px-6 py-4 font-semibold">酒水流通/新零售</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sz300755.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300755#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ300755#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 600779</span></td><td class="px-6 py-4 font-bold text-green-700">水井坊</td><td class="px-6 py-4 text-slate-500">约 260 亿</td><td class="px-6 py-4 font-semibold">白酒酿造</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sh600779.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600779#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SH600779#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-green-50/20">
-                            <td class="px-6 py-4"><span class="pma-badge px-2 py-1 rounded text-xs font-bold uppercase">PMA | 002930</span></td><td class="px-6 py-4 font-bold text-green-700">宏川智慧</td><td class="px-6 py-4 text-slate-500">约 62 亿</td><td class="px-6 py-4 font-semibold">物流/石化仓储</td><td class="px-6 py-4 space-x-3 text-blue-500 font-medium">
-                                <a href="https://quote.eastmoney.com/concept/sz002930.html" target="_blank" class="link-icon"><i class="fa-solid fa-tags"></i> 概念</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002930#/gsxw" target="_blank" class="link-icon"><i class="fa-solid fa-newspaper"></i> 新闻</a><a href="https://emweb.securities.eastmoney.com/pc_hs_f10/pages/index.html?type=web&code=SZ002930#/cwfx" target="_blank" class="link-icon"><i class="fa-solid fa-file-invoice-dollar"></i> 财务</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- VCP 极致双日压缩突破策略股票列表 -->
+        <div class="stock-section">
+            <h2>VCP 极致双日压缩突破策略筛选股票</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>股票代码</th>
+                        <th>参考市值（亿元）</th>
+                        <th>所属行业</th>
+                        <th>概念题材</th>
+                        <th>最新新闻</th>
+                        <th>财务情况</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 生成股票链接规则：东方财富网，沪市(sh)、深市(sz) -->
+                    <tr><td>600683</td><td>约50</td><td>房地产</td><td><a href="https://guba.eastmoney.com/stock/sh600683.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600683,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600683/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>000719</td><td>约80</td><td>汽车零部件</td><td><a href="https://guba.eastmoney.com/stock/sz000719.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz000719,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz000719/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>605006</td><td>约65</td><td>食品加工</td><td><a href="https://guba.eastmoney.com/stock/sh605006.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh605006,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh605006/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>002334</td><td>约120</td><td>电子制造</td><td><a href="https://guba.eastmoney.com/stock/sz002334.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz002334,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz002334/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>600814</td><td>约75</td><td>医药生物</td><td><a href="https://guba.eastmoney.com/stock/sh600814.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600814,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600814/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>300985</td><td>约45</td><td>机械设备</td><td><a href="https://guba.eastmoney.com/stock/sz300985.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz300985,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz300985/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>600463</td><td>约90</td><td>综合</td><td><a href="https://guba.eastmoney.com/stock/sh600463.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600463,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600463/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>000517</td><td>约60</td><td>商业零售</td><td><a href="https://guba.eastmoney.com/stock/sz000517.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz000517,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz000517/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>300193</td><td>约55</td><td>文化传媒</td><td><a href="https://guba.eastmoney.com/stock/sz300193.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz300193,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz300193/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>600778</td><td>约100</td><td>通信设备</td><td><a href="https://guba.eastmoney.com/stock/sh600778.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600778,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600778/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>300106</td><td>约70</td><td>环保工程</td><td><a href="https://guba.eastmoney.com/stock/sz300106.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz300106,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz300106/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>600992</td><td>约85</td><td>医药商业</td><td><a href="https://guba.eastmoney.com/stock/sh600992.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600992,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600992/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>603709</td><td>约58</td><td>专用设备</td><td><a href="https://guba.eastmoney.com/stock/sh603709.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh603709,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh603709/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>300317</td><td>约48</td><td>计算机应用</td><td><a href="https://guba.eastmoney.com/stock/sz300317.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz300317,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz300317/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>002377</td><td>约95</td><td>厨卫用具</td><td><a href="https://guba.eastmoney.com/stock/sz002377.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz002377,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz002377/2025.html" target="_blank">财务数据</a></td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <footer class="mt-8 text-center text-slate-400 text-xs">
-            <p>© 2026 量化策略实战复核中心 | 本网页基于 MacBook 本地分析及 AI 聚合生成</p>
-        </footer>
+        <!-- 持续动能堆积策略股票列表 -->
+        <div class="stock-section">
+            <h2>持续动能堆积策略筛选股票</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>股票代码</th>
+                        <th>参考市值（亿元）</th>
+                        <th>所属行业</th>
+                        <th>概念题材</th>
+                        <th>最新新闻</th>
+                        <th>财务情况</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>600395</td><td>约110</td><td>电力设备</td><td><a href="https://guba.eastmoney.com/stock/sh600395.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600395,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600395/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>688129</td><td>约130</td><td>半导体</td><td><a href="https://guba.eastmoney.com/stock/sh688129.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh688129,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh688129/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>000767</td><td>约150</td><td>国防军工</td><td><a href="https://guba.eastmoney.com/stock/sz000767.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz000767,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz000767/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>300755</td><td>约200</td><td>医疗器械</td><td><a href="https://guba.eastmoney.com/stock/sz300755.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz300755,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz300755/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>600779</td><td>约88</td><td>交通运输</td><td><a href="https://guba.eastmoney.com/stock/sh600779.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sh600779,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sh600779/2025.html" target="_blank">财务数据</a></td></tr>
+                    <tr><td>002930</td><td>约72</td><td>服装家纺</td><td><a href="https://guba.eastmoney.com/stock/sz002930.html" target="_blank">查看详情</a></td><td><a href="https://guba.eastmoney.com/news,sz002930,1.html" target="_blank">最新资讯</a></td><td><a href="https://data.eastmoney.com/bbsj/sz002930/2025.html" target="_blank">财务数据</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 备注信息 -->
+        <div class="remark">
+            备注：1. 参考市值截至2026年2月5日，仅供研究参考，实时数据请以东方财富网等专业财经平台为准；<br>
+            2. 所有链接均跳转至东方财富网对应股票板块，打开方式为新标签页，不影响当前页面浏览；<br>
+            3. 本页面仅为数据展示，不构成任何投资建议，投资有风险，入市需谨慎。
+        </div>
     </div>
 </body>
 </html>
